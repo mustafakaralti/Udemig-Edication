@@ -1,0 +1,106 @@
+@import "./mixin";
+header{
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.3px);
+    -webkit-backdrop-filter: blur(10.3px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    @extend .flexbox;
+    padding: 27px 17px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    // logo
+
+    .logo{
+         font-size: 33px;
+         font-weight: 700;
+         white-space: nowrap;
+         
+         @include laptop{
+            font-size: 25px;
+         }
+         
+         span{
+            color: $main-color;
+         }
+    }
+    // navigation
+    nav{
+        @extend .flexbox;
+        
+        @include laptop{
+            display: none !important;
+        }
+        
+        li {
+            
+            margin: 15px 22px;
+            a{
+              font-size: $p-font;
+              font-weight: 500;
+              text-transform: uppercase;
+              display: block;
+              @extend .transation;
+              &:hover{
+                scale: 1.2;
+                color: $main-color;
+              }
+            }
+        }
+    }
+    nav.active{
+        display: block !important;
+        position: fixed;
+        right: 10px;
+        top: 120%;
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.24);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10.3px);
+        -webkit-backdrop-filter: blur(10.3px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 20px 0;
+        border-radius: 16px
+     }
+     // right
+     .header-right{
+        @extend .flexbox;
+       
+        a{
+            @include tablet{
+                display: none !important;
+            }
+            font-size: 20px;
+            margin: 0 18px 0 5px;
+            cursor: pointer;
+            @extend .transation;
+            &:hover{
+                color: $main-color;
+                transform: translateY(-3px);
+            }
+            &:first-child{
+                font-size: $p-font;
+                margin-right: 20px;
+            }
+        }
+        #menu-btn{
+            font-size: 20px;
+            display: none;
+            cursor: pointer;
+            @extend .transation;
+            &:hover{
+                color: $main-color;
+                transform: translateY(-3px);
+            }
+            @include laptop{
+                display: block !important;
+            }
+        }
+    }
+}
